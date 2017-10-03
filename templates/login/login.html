@@ -1,0 +1,63 @@
+{%  extends 'base.html' %}
+
+{% block import %}
+    {% load static %}
+    <link href="{% static 'login/login.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+
+        <div class="text-center">
+            <h2>Welcome someone. Show me who you are!</h2>
+        </div>
+
+        <div class="bg-info">
+
+            <div class="media">
+                <div class="media-left">
+                    {% load static %}
+                    <div class="img-responsive marg">
+                        <img src="{% static 'images/default/Human1.png' %}" alt="human" class="media-object" style="width: 120px">
+                    </div>
+                </div>
+                <div class="media-body">
+
+                    <div class="container">
+
+                        <div class="col-lg-5">
+
+                            <form class="form-signin" action="" method="post">
+                                {% csrf_token %}
+                                <h2 class="form-signin-heading">Please sign in</h2>
+
+                                <label for="username" class="sr-only">Username</label>
+                                <input type="text" name="username" value="" id="username" class="form-control" placeholder="Username" required="" autofocus="">
+
+                                <label for="inputPassword" class="sr-only">Password</label>
+                                <input type="password" name="password" value="" id="inputPassword" class="form-control" placeholder="Password" required="">
+
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="remember-me"> Remember me
+                                    </label>
+                                </div>
+                                <button class="btn btn-lg btn-primary" type="submit" value="{{ next|escape }}">Sign in</button>
+                                <a href="{% url 'login:log_up' %}">Log up</a>
+                            </form>
+
+                        </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

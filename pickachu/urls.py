@@ -21,5 +21,8 @@ urlpatterns = [
     # homepage
     url(r'^', include('home.urls')),
 
+    # login web page
+    url(r'^login/', include('login.urls')),
+
     url(r'^admin/', admin.site.urls),
 ]

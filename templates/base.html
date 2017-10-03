@@ -4,10 +4,13 @@
 
     <head>
         <meta charset="UTF-8">
+
         {% load static %}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
 
         <link href="{% static 'base.css' %}" rel="stylesheet" type="text/css">
@@ -22,46 +25,54 @@
 
         <!--NAVBAR MENU-->
 
-    </body>
         <div class="lg">
-            <nav class="navbar navbar-inverse my_navbar">
+            <nav class="navbar navbar-inverse navbar-fixed-top my_navbar">
                 <div class="container">
                     <div class="navbar-header">
+
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
                         <a class="navbar-brand" href="{% url 'home:home' %}">KPI open social network</a>
                     </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav navbar-right">
 
-                    <ul class="nav navbar-nav navbar-right">
+                            <li ng-app="dropdown-menu">
+                                <a class="dropdown-toggle font_medium" data-toggle="dropdown" href="#">Service<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
 
-                        <li class="dropdown">
-                            <a class="dropdown-toggle font_medium" data-toggle="dropdown" href="#">Service<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
+                                    <li><a href="#">Newest</a></li>
+                                    <li><a href="#">Hot</a></li>
 
-                                <li><a href="#">Newest</a></li>
-                                <li><a href="#">Hot</a></li>
+                                </ul>
+                            </li>
 
-                            </ul>
-                        </li>
-
-                        <li>
-                            <form class="navbar-form navbar-left">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-default" type="submit">
-                                            <i class="glyphicon glyphicon-search"></i>
-                                        </button>
+                            <li>
+                                <form class="navbar-form navbar-left">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-default" type="submit">
+                                                <i class="glyphicon glyphicon-search"></i>
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
-                        </li>
+                                </form>
+                            </li>
 
-                        <li><a class="font_medium" href="#">About</a></li>
-                        <li><a class="font_medium" href="#"><span class="glyphicon glyphicon-log-in"></span>Log in</a></li>
+                            <li><a class="font_medium" href="#">About</a></li>
+                            <li><a class="font_medium" href="{% url 'login:login' %}"><span class="glyphicon glyphicon-log-in"></span>Log in</a></li>
 
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </div>
+        <div style="margin-bottom: 70px"></div>
 
 
         <!--THE END -->

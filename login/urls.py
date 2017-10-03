@@ -1,0 +1,13 @@
+from django.conf.urls import url
+from . import views
+
+app_name = 'login'
+
+urlpatterns = [
+
+    # login page
+    url('^$', views.Login.as_view(), name='login'),
+
+    # log up page
+    url('^registration/$', views.Log_up.as_view(), name='log_up')
+]

@@ -11,5 +11,14 @@
 
 {% block body %}
 
+    <div class="container">
+        <div class="text-center text-info">
+            <h2>Here is an amazing advertising! Really^)</h2>
+        </div>
+    </div>
+
+    {% if user.is_authenticated %}
+        <h1>Hello {{ user.username }}</h1>
+    {% endif %}
 
 {% endblock %}
