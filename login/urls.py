@@ -9,5 +9,8 @@ urlpatterns = [
     url('^$', views.Login.as_view(), name='login'),
 
     # log up page
-    url('^registration/$', views.Log_up.as_view(), name='log_up')
+    url('^registration/$', views.LogUp.as_view(), name='log_up'),
+
+    # log out
+    url(r'logout/$', views.LogOut.as_view(), name='logout'),
 ]

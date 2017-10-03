@@ -1,8 +1,6 @@
 {%  extends 'base.html' %}
 
 {% block import %}
-    {% load static %}
-    <link href="{% static 'login/login.css' %}" rel="stylesheet">
 
 {% endblock %}
 
@@ -23,7 +21,7 @@
             <div class="media">
                 <div class="media-left">
                     {% load static %}
-                    <div class="img-responsive marg">
+                    <div class="img-responsive" style="margin-top: 5%; margin-left: 5%">
                         <img src="{% static 'images/default/Human1.png' %}" alt="human" class="media-object" style="width: 120px">
                     </div>
                 </div>
@@ -48,12 +46,13 @@
                                         <input type="checkbox" value="remember-me"> Remember me
                                     </label>
                                 </div>
-                                <button class="btn btn-lg btn-primary" type="submit" value="{{ next|escape }}">Sign in</button>
+                                <button class="btn btn-lg btn-primary" type="submit" value="{{ next }}">Sign in</button>
                                 <a href="{% url 'login:log_up' %}">Log up</a>
                             </form>
 
                         </div>
 
+                    </div>
 
                 </div>
             </div>

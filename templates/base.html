@@ -41,7 +41,7 @@
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav navbar-right">
 
-                            <li ng-app="dropdown-menu">
+                            <li class="dropdown">
                                 <a class="dropdown-toggle font_medium" data-toggle="dropdown" href="#">Service<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
 
@@ -65,7 +65,27 @@
                             </li>
 
                             <li><a class="font_medium" href="#">About</a></li>
-                            <li><a class="font_medium" href="{% url 'login:login' %}"><span class="glyphicon glyphicon-log-in"></span>Log in</a></li>
+
+                            {%  if user.is_authenticated %}
+
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle font_medium" data-toggle="dropdown" href="#">{{ user.username }}<span class="caret"></span></a>
+
+                                    <ul class="dropdown-menu">
+                                      <li><a href="#">Profile</a></li>
+                                      <li><a href="#">Create post</a></li>
+                                      <li class="divider" style="background-color: rgba(1,0,34,1);"></li>
+                                      <li><a href="#">Settings</a></li>
+                                      <li><a href="{% url 'login:logout' %}">Log out</a></li>
+                                    </ul>
+
+                                  </li>
+
+                            {% else %}
+
+                                <li><a class="font_medium" href="{% url 'login:login' %}"><span class="glyphicon glyphicon-log-in"></span>Log in</a></li>
+
+                            {% endif %}
 
                         </ul>
                     </div>
