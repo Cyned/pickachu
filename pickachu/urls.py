@@ -24,5 +24,8 @@ urlpatterns = [
     # login web page
     url(r'^login/', include('login.urls')),
 
+    # info web page
+    url(r'^about/', include('about.urls')),
+
     url(r'^admin/', admin.site.urls),
 ]

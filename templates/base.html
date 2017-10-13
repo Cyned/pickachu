@@ -10,7 +10,7 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
 
         <link href="{% static 'base.css' %}" rel="stylesheet" type="text/css">
@@ -64,7 +64,7 @@
                                 </form>
                             </li>
 
-                            <li><a class="font_medium" href="#">About</a></li>
+                            <li><a class="font_medium" href="{% url 'about:home' %}">About</a></li>
 
                             {%  if user.is_authenticated %}
 
@@ -96,6 +96,8 @@
 
 
         <!--THE END -->
+
+
 
         {% block body %}{% endblock %}
 

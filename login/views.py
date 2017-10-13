@@ -47,9 +47,7 @@ class LogUp(View):
         if form.is_valid():
             user = form.save(commit=False)
 
-            username = form.cleaned_data['username']
             password = form.cleaned_data['password']
-
 
             user.set_password(password)
             user.save()

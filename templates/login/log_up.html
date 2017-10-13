@@ -10,6 +10,9 @@
 
 
 {% block body %}
+
+
+
     <div class="container">
 
         <div class="text-center">
@@ -29,13 +32,19 @@
                         <label for="username" class="sr-only">Username</label>
                         <input type="text" name="username" value="" id="username" class="form-control" placeholder="Username" required="" autofocus="">
 
-                        <label for="password" class="sr-only">Password</label>
-                        <input type="password" name="password" value="" id="password" class="form-control" placeholder="Password" required="">
-
                         <label for="email" class="sr-only">Email address</label>
                         <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required="" autofocus="">
 
-                        <button class="btn btn-lg btn-primary" type="submit" value="{{ next }}">Sign up</button>
+                        <div ng-app="myApp" ng-init="ok=false" ng-controller="formCtrl">
+                            <label for="password" class="sr-only">Password</label>
+                            <input type="password" name="password" value="" id="password" class="form-control" placeholder="Password" required="">
+
+                            <label class="sr-only">Password</label>
+                            <input type="password" name="repeat" value="" class="form-control" placeholder="Repeat password" required="">
+
+                            <button ng-disabled="ok" class="btn btn-lg btn-primary" type="submit" value="{{ next }}">Sign up</button>
+                        </div>
+
                         <a class="btn btn-lg btn-danger" href="{% url 'home:home' %}">Cancel</a>
 
                     </form>
@@ -46,5 +55,19 @@
         </div>
 
     </div>
+
+<script>
+var app = angular.module('myApp', []);
+var pass1;
+var pass2;
+
+app.controller('formCtrl', function($scope){
+    pass1 = document.getElementsByName('password').value;
+    pass2 = document.getElementsByName('repeat').value;
+
+    // $scope.ok = pass1 !== pass2;
+    $scope.ok = false;
+});
+</script>
 
 {% endblock %}

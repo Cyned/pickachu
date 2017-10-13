@@ -11,4 +11,4 @@ class UserFormLog(forms.ModelForm):
 class UserFormRegistration(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['username', 'password']
+        fields = ['username', 'password', 'email']
